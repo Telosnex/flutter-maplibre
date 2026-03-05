@@ -13,6 +13,11 @@ void main(List<String> args) {
           structure: OutputStructure.singleFile,
         ),
       ),
+      exclude: BindingExclusions(
+        classes: ClassNameFilter.exclude(
+          RegExp(r'org\.maplibre\.android\.camera\.CameraUpdateFactory\$ZoomUpdate\$Type'),
+        ),
+      ),
       preamble: '// ignore_for_file: type=lint',
       mavenDownloads: MavenDownloads(
         sourceDeps: ['org.maplibre.gl:android-sdk-geojson:6.0.1'],
